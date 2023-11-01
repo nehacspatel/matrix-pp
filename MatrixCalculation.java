@@ -1,3 +1,4 @@
+//Copyright (C) [2023] [Neha Patel]
 import java.util.Scanner;
 class MatrixCalculation {
     public double[][] matrix;
@@ -8,6 +9,7 @@ class MatrixCalculation {
         this.cols = cols;
         matrix = new double[rows][cols];
     }
+    // Method to input matrix elements
     public void inputMatrix() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the elements of the matrix :");
@@ -16,8 +18,8 @@ class MatrixCalculation {
                 matrix[i][j] = scanner.nextDouble();
             }
         }
-
     }
+     // Method to display matrix elements
     public void displayMatrix() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -29,7 +31,7 @@ class MatrixCalculation {
     public double[][] getMatrix() {
         return matrix;
     }
-    //add method for addition of matrix
+// Method for matrix addition
     public static MatrixCalculation add(MatrixCalculation A, MatrixCalculation B) {
         if (A.rows != B.rows || A.cols != B.cols) {
             System.out.println("Matrix dimensions are not compatible for addition.");
@@ -43,7 +45,7 @@ class MatrixCalculation {
         }
         return result;
     }
-    //subtract method for subtraction of matrix
+// Method for matrix subtraction
     public static MatrixCalculation subtract(MatrixCalculation A, MatrixCalculation B) {
         if (A.rows != B.rows || A.cols != B.cols) {
             System.out.println("Matrix dimensions are not compatible for subtraction.");
@@ -57,7 +59,7 @@ class MatrixCalculation {
         }
         return result;
     }
-    //Multply method for multiplication of matrix
+    // Method for matrix multiplication
     public static MatrixCalculation multiply(MatrixCalculation A, MatrixCalculation B) {
         if (A.cols != B.rows) {
             System.out.println("Matrix dimensions are not compatible for multiplication.");
@@ -76,7 +78,7 @@ class MatrixCalculation {
         }
         return result;
     }
-    //inverse method for inverse of matrix
+    // Method for matrix inverse
     public static MatrixCalculation inverse(MatrixCalculation A) {
         int n = A.rows;
         if (n != A.cols) {
@@ -112,7 +114,7 @@ class MatrixCalculation {
         }
         return result;
     }
-    //adjoint method for adjoint of matrix
+    // Method for matrix adjoint
     public static MatrixCalculation adjoint(MatrixCalculation A) {
         int n = A.rows;
         if (n != A.cols) {
@@ -128,7 +130,7 @@ class MatrixCalculation {
         }
         return result;
     }
-    //cofactor method for cofactor of matrix
+    // Method for matrix cofactor
     public static MatrixCalculation cofactor(MatrixCalculation A) {
         int n = A.rows;
         if (n != A.cols) {
@@ -174,7 +176,7 @@ class MatrixCalculation {
         }
         return A;
     }
-    // Method to find the rank of a matrix
+    // Method for matrix rank
     public static int findRank(MatrixCalculation A) {
         double[][] matrix = A.getMatrix();
         int rows = A.rows;
@@ -219,7 +221,7 @@ class MatrixCalculation {
         return rank;
     }
 
-    // method to find whether its is  skewasymmetric  or not
+    // Method for matrix skewasymmetric
     public static MatrixCalculation skewasymmetric(MatrixCalculation A) {
         int n = A.rows;
         if (n != A.cols) {
@@ -290,9 +292,11 @@ class MatrixCalculation {
         System.out.println("8. Matrix SkewAsymmetric");
         System.out.println("9. Matrix Transpose");
         System.out.println("10. Matrix Rank");
+        // User selects an operation (addition, subtraction, etc.) here...
         System.out.println("Selected choice");
         int s = scanner.nextInt();
         switch (s) {
+                // Cases for various matrix operations...
             case 1:
                 MatrixCalculation resultAddition = add(matrixA, matrixB);
                 if (resultAddition != null) {
